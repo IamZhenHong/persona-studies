@@ -1,0 +1,40 @@
+{"id": "q007", "category": 1, "text": "Why do my chocolate chip cookies spread out flat in the oven?", "src": "drafter_A:7"}
+{"id": "q009", "category": 1, "text": "How do I use a honing steel on a kitchen knife, and how is that different from sharpening?", "src": "drafter_A:9"}
+{"id": "q011", "category": 2, "text": "Explain the 50/30/20 budgeting rule.", "src": "drafter_A:111"}
+{"id": "q018", "category": 2, "text": "Our family of four spends too much on groceries every month. What are practical ways to cut that bill?", "src": "drafter_A:118"}
+{"id": "q021", "category": 3, "text": "How should I answer 'What's your greatest weakness?' in a job interview?", "src": "drafter_A:221"}
+{"id": "q026", "category": 3, "text": "I have my first one-on-one with my new manager next week. How should I prepare?", "src": "drafter_A:226"}
+{"id": "q031", "category": 4, "text": "My bathroom sink drains really slowly. How can I clear it without chemical drain cleaner?", "src": "drafter_A:331"}
+{"id": "q033", "category": 4, "text": "My toilet keeps running after it's flushed. How do I fix it?", "src": "drafter_A:333"}
+{"id": "q042", "category": 5, "text": "How do I pack a single carry-on bag for a week-long trip without running out of clothes?", "src": "drafter_B:2"}
+{"id": "q049", "category": 5, "text": "How often should I stop for a break on a 10-hour road trip, and what should I do during the stops?", "src": "drafter_B:9"}
+{"id": "q058", "category": 6, "text": "A metal spoon and a wooden spoon have been sitting in the same drawer, but the metal one feels colder to touch. Why?", "src": "drafter_B:118"}
+{"id": "q059", "category": 6, "text": "How does a rainbow form, and why is it curved?", "src": "drafter_B:119"}
+{"id": "q062", "category": 7, "text": "How do bees turn flower nectar into honey?", "src": "drafter_B:222"}
+{"id": "q063", "category": 7, "text": "How do migrating birds find their way over thousands of kilometres?", "src": "drafter_B:223"}
+{"id": "q075", "category": 8, "text": "What was the Silk Road, and what was traded along it?", "src": "drafter_B:335"}
+{"id": "q079", "category": 8, "text": "Where do Halloween traditions like costumes and carved pumpkins come from?", "src": "drafter_B:339"}
+{"id": "q082", "category": 9, "text": "My browser keeps showing an old version of a website I manage. How do I clear the cache in Chrome?", "src": "drafter_C:2"}
+{"id": "q088", "category": 9, "text": "My laptop froze completely and won't respond to the mouse or keyboard. What should I do?", "src": "drafter_C:8"}
+{"id": "q092", "category": 10, "text": "This JavaScript is supposed to add up every number in the array, but the result is wrong. What's the bug?\n\nfunction total(nums) {\n  let sum = 0;\n  for (let i = 1; i <= nums.length; i++) {\n    sum += nums[i];\n  }\n  return sum;\n}", "src": "drafter_C:112"}
+{"id": "q096", "category": 10, "text": "Why does this Python function keep remembering items from earlier calls, and how do I fix it?\n\ndef add_item(item, basket=[]):\n    basket.append(item)\n    return basket", "src": "drafter_C:116"}
+{"id": "q105", "category": 11, "text": "Rewrite this job ad line so it sounds welcoming: \"Applicants must have 5+ years experience. No exceptions.\"", "src": "drafter_C:225"}
+{"id": "q109", "category": 11, "text": "Write a friendly message for my group chat reminding everyone to send me their share for last Saturday's dinner, which came to $32 each.", "src": "drafter_C:229"}
+{"id": "q115", "category": 12, "text": "Roughly how many litres of water does a bathtub hold if it's 1.5 m long, 0.7 m wide and filled 0.4 m deep?", "src": "drafter_C:335"}
+{"id": "q116", "category": 12, "text": "I cycle to work at 20 km/h and back home at 10 km/h along the same road. What's my average speed for the round trip?", "src": "drafter_C:336"}
+{"id": "q127", "category": 13, "text": "Explain when to use 'i.e.' versus 'e.g.'.", "src": "drafter_D:7"}
+{"id": "q128", "category": 13, "text": "Can you explain what the passive voice is and rewrite this sentence in the active voice: 'The report was written by the committee last week.'", "src": "drafter_D:8"}
+{"id": "q134", "category": 14, "text": "What are good strategies for answering multiple-choice questions when I'm not sure of the answer?", "src": "drafter_D:114"}
+{"id": "q138", "category": 14, "text": "I have to give a five-minute speech next week without notes. How should I memorise it?", "src": "drafter_D:118"}
+{"id": "q143", "category": 15, "text": "I've never been a runner. How should I build up to running 5K without stopping?", "src": "drafter_D:223"}
+{"id": "q145", "category": 15, "text": "Give me a five-minute stretching routine I can do at my desk during the workday.", "src": "drafter_D:225"}
+{"id": "q155", "category": 16, "text": "We're bringing home a second cat next week. How should we introduce her to our resident cat?", "src": "drafter_D:335"}
+{"id": "q158", "category": 16, "text": "I'm setting up my first freshwater aquarium. What does 'cycling the tank' mean, and how do I do it?", "src": "drafter_D:338"}
+{"id": "q166", "category": 17, "text": "Write a short thank-you note for a gift I don't actually like, without lying outright.", "src": "drafter_E:6"}
+{"id": "q169", "category": 17, "text": "How long should I wait before following up on an email to an acquaintance who hasn't replied?", "src": "drafter_E:9"}
+{"id": "q171", "category": 18, "text": "Make a fair weekly chore rota for four adults sharing a flat with a kitchen, two bathrooms and a living room.", "src": "drafter_E:111"}
+{"id": "q172", "category": 18, "text": "How should I organise a small reach-in closet that's overflowing?", "src": "drafter_E:112"}
+{"id": "q182", "category": 19, "text": "What should I check before buying a used bicycle from a stranger?", "src": "drafter_E:222"}
+{"id": "q187", "category": 19, "text": "What should I look for when buying my first good chef's knife?", "src": "drafter_E:227"}
+{"id": "q192", "category": 20, "text": "What are the basic principles of a good chess opening?", "src": "drafter_E:332"}
+{"id": "q193", "category": 20, "text": "Explain the rules of a haiku and write one about autumn rain.", "src": "drafter_E:333"}

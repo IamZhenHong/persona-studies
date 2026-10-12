@@ -1,0 +1,200 @@
+{"id": "q001", "category": 1, "text": "I want to make pancakes but I'm out of buttermilk. What can I use instead?", "src": "drafter_A:1"}
+{"id": "q002", "category": 1, "text": "Why does my rice keep coming out mushy when I cook it on the stove, and how do I fix it?", "src": "drafter_A:2"}
+{"id": "q003", "category": 1, "text": "How do I keep guacamole from turning brown if I make it a few hours before a party?", "src": "drafter_A:3"}
+{"id": "q004", "category": 1, "text": "Explain the difference between baking soda and baking powder.", "src": "drafter_A:4"}
+{"id": "q005", "category": 1, "text": "What's the best way to reheat leftover pizza so the crust doesn't go soggy?", "src": "drafter_A:5"}
+{"id": "q006", "category": 1, "text": "How do I caramelize onions properly? Mine always burn before they get sweet.", "src": "drafter_A:6"}
+{"id": "q007", "category": 1, "text": "Why do my chocolate chip cookies spread out flat in the oven?", "src": "drafter_A:7"}
+{"id": "q008", "category": 1, "text": "Give me a basic ratio for homemade vinaigrette and a few ways to vary it.", "src": "drafter_A:8"}
+{"id": "q009", "category": 1, "text": "How do I use a honing steel on a kitchen knife, and how is that different from sharpening?", "src": "drafter_A:9"}
+{"id": "q010", "category": 1, "text": "How can I make hard-boiled eggs that are easy to peel?", "src": "drafter_A:10"}
+{"id": "q011", "category": 2, "text": "Explain the 50/30/20 budgeting rule.", "src": "drafter_A:111"}
+{"id": "q012", "category": 2, "text": "How does compound interest work? Can you show me with a simple example?", "src": "drafter_A:112"}
+{"id": "q013", "category": 2, "text": "How much money should I keep in an emergency fund?", "src": "drafter_A:113"}
+{"id": "q014", "category": 2, "text": "What is a credit score, and what things affect it?", "src": "drafter_A:114"}
+{"id": "q015", "category": 2, "text": "What's the difference between the debt avalanche and debt snowball methods for paying off debt?", "src": "drafter_A:115"}
+{"id": "q016", "category": 2, "text": "My payslip shows gross pay and net pay. What's the difference, and where does the rest of the money go?", "src": "drafter_A:116"}
+{"id": "q017", "category": 2, "text": "What's the difference between paying with a debit card and a credit card?", "src": "drafter_A:117"}
+{"id": "q018", "category": 2, "text": "Our family of four spends too much on groceries every month. What are practical ways to cut that bill?", "src": "drafter_A:118"}
+{"id": "q019", "category": 2, "text": "What is an index fund?", "src": "drafter_A:119"}
+{"id": "q020", "category": 2, "text": "What's the difference between APR and the interest rate on a loan?", "src": "drafter_A:120"}
+{"id": "q021", "category": 3, "text": "How should I answer 'What's your greatest weakness?' in a job interview?", "src": "drafter_A:221"}
+{"id": "q022", "category": 3, "text": "I've been in my role for two years without a pay increase. How do I prepare to ask my manager for a raise?", "src": "drafter_A:222"}
+{"id": "q023", "category": 3, "text": "What should I say in a thank-you email after a job interview?", "src": "drafter_A:223"}
+{"id": "q024", "category": 3, "text": "How long should my resume be?", "src": "drafter_A:224"}
+{"id": "q025", "category": 3, "text": "How do I give constructive feedback to a coworker without it sounding like an attack?", "src": "drafter_A:225"}
+{"id": "q026", "category": 3, "text": "I have my first one-on-one with my new manager next week. How should I prepare?", "src": "drafter_A:226"}
+{"id": "q027", "category": 3, "text": "What is the STAR method for answering interview questions?", "src": "drafter_A:227"}
+{"id": "q028", "category": 3, "text": "My manager asked me to take on another project but I'm already at capacity. How do I say no politely?", "src": "drafter_A:228"}
+{"id": "q029", "category": 3, "text": "How do I explain a one-year gap on my resume?", "src": "drafter_A:229"}
+{"id": "q030", "category": 3, "text": "What makes a good meeting agenda, and how do I keep a meeting on track?", "src": "drafter_A:230"}
+{"id": "q031", "category": 4, "text": "My bathroom sink drains really slowly. How can I clear it without chemical drain cleaner?", "src": "drafter_A:331"}
+{"id": "q032", "category": 4, "text": "How do I patch a small hole in drywall, about the size of a doorknob?", "src": "drafter_A:332"}
+{"id": "q033", "category": 4, "text": "My toilet keeps running after it's flushed. How do I fix it?", "src": "drafter_A:333"}
+{"id": "q034", "category": 4, "text": "How often should I change the air filter in my furnace or HVAC system?", "src": "drafter_A:334"}
+{"id": "q035", "category": 4, "text": "How do I get rid of mildew on the grout in my shower?", "src": "drafter_A:335"}
+{"id": "q036", "category": 4, "text": "How do I stop a door hinge from squeaking?", "src": "drafter_A:336"}
+{"id": "q037", "category": 4, "text": "How do I find a stud in the wall if I don't have a stud finder?", "src": "drafter_A:337"}
+{"id": "q038", "category": 4, "text": "The caulk around my bathtub is cracked and moldy. How do I replace it?", "src": "drafter_A:338"}
+{"id": "q039", "category": 4, "text": "My kitchen faucet drips constantly. How do I fix it?", "src": "drafter_A:339"}
+{"id": "q040", "category": 4, "text": "What's the right order of steps for painting a bedroom?", "src": "drafter_A:340"}
+{"id": "q041", "category": 5, "text": "I'm flying from New York to London overnight next month. What can I do before and after the flight to adjust to the time difference faster?", "src": "drafter_B:1"}
+{"id": "q042", "category": 5, "text": "How do I pack a single carry-on bag for a week-long trip without running out of clothes?", "src": "drafter_B:2"}
+{"id": "q043", "category": 5, "text": "What's a safe amount of time to leave between connecting flights if I have to change terminals?", "src": "drafter_B:3"}
+{"id": "q044", "category": 5, "text": "I need to travel about 400 km between two cities. How should I decide between taking the train and flying?", "src": "drafter_B:4"}
+{"id": "q045", "category": 5, "text": "What's the difference between a plug adapter and a voltage converter, and how do I know which one I need for my hair dryer?", "src": "drafter_B:5"}
+{"id": "q046", "category": 5, "text": "My checked suitcase didn't show up on the carousel. What should I do before leaving the airport?", "src": "drafter_B:6"}
+{"id": "q047", "category": 5, "text": "When I pay by card abroad, the machine sometimes asks if I want to be charged in my home currency. Which option should I pick, and why?", "src": "drafter_B:7"}
+{"id": "q048", "category": 5, "text": "Explain what a typical travel insurance policy covers and what it usually leaves out.", "src": "drafter_B:8"}
+{"id": "q049", "category": 5, "text": "How often should I stop for a break on a 10-hour road trip, and what should I do during the stops?", "src": "drafter_B:9"}
+{"id": "q050", "category": 5, "text": "What are the pros and cons of staying in a hostel instead of a budget hotel?", "src": "drafter_B:10"}
+{"id": "q051", "category": 6, "text": "Why is the sky blue during the day?", "src": "drafter_B:111"}
+{"id": "q052", "category": 6, "text": "How does a microwave oven actually heat food?", "src": "drafter_B:112"}
+{"id": "q053", "category": 6, "text": "Why does ice float on water when most solids sink in their own liquid?", "src": "drafter_B:113"}
+{"id": "q054", "category": 6, "text": "Explain how a refrigerator moves heat out of its inside to keep food cold.", "src": "drafter_B:114"}
+{"id": "q055", "category": 6, "text": "How do noise-cancelling headphones block out sound?", "src": "drafter_B:115"}
+{"id": "q056", "category": 6, "text": "What keeps a heavy airliner up in the air?", "src": "drafter_B:116"}
+{"id": "q057", "category": 6, "text": "How does my phone's GPS work out where I am?", "src": "drafter_B:117"}
+{"id": "q058", "category": 6, "text": "A metal spoon and a wooden spoon have been sitting in the same drawer, but the metal one feels colder to touch. Why?", "src": "drafter_B:118"}
+{"id": "q059", "category": 6, "text": "How does a rainbow form, and why is it curved?", "src": "drafter_B:119"}
+{"id": "q060", "category": 6, "text": "Why does water boil at a lower temperature at high altitude?", "src": "drafter_B:120"}
+{"id": "q061", "category": 7, "text": "Why do leaves turn red and yellow in autumn?", "src": "drafter_B:221"}
+{"id": "q062", "category": 7, "text": "How do bees turn flower nectar into honey?", "src": "drafter_B:222"}
+{"id": "q063", "category": 7, "text": "How do migrating birds find their way over thousands of kilometres?", "src": "drafter_B:223"}
+{"id": "q064", "category": 7, "text": "Explain photosynthesis in simple terms.", "src": "drafter_B:224"}
+{"id": "q065", "category": 7, "text": "Why does cutting an onion make your eyes water?", "src": "drafter_B:225"}
+{"id": "q066", "category": 7, "text": "How does a chameleon change its colour?", "src": "drafter_B:226"}
+{"id": "q067", "category": 7, "text": "What's the difference between a virus and a bacterium?", "src": "drafter_B:227"}
+{"id": "q068", "category": 7, "text": "How do fireflies make their light?", "src": "drafter_B:228"}
+{"id": "q069", "category": 7, "text": "How does water get from the roots all the way to the top of a tall tree?", "src": "drafter_B:229"}
+{"id": "q070", "category": 7, "text": "Why do some animals hibernate, and what happens in their bodies while they do?", "src": "drafter_B:230"}
+{"id": "q071", "category": 8, "text": "Why was the Great Wall of China built?", "src": "drafter_B:331"}
+{"id": "q072", "category": 8, "text": "How did the printing press change everyday life in Europe?", "src": "drafter_B:332"}
+{"id": "q073", "category": 8, "text": "How did the ancient Olympic Games start, and how were they different from the modern Olympics?", "src": "drafter_B:333"}
+{"id": "q074", "category": 8, "text": "Why did the Romans build aqueducts, and how did they get water to flow over such long distances?", "src": "drafter_B:334"}
+{"id": "q075", "category": 8, "text": "What was the Silk Road, and what was traded along it?", "src": "drafter_B:335"}
+{"id": "q076", "category": 8, "text": "Why does a week have seven days?", "src": "drafter_B:336"}
+{"id": "q077", "category": 8, "text": "How do historians think the ancient Egyptians built the pyramids?", "src": "drafter_B:337"}
+{"id": "q078", "category": 8, "text": "What was the Renaissance, and why did it begin in Italy?", "src": "drafter_B:338"}
+{"id": "q079", "category": 8, "text": "Where do Halloween traditions like costumes and carved pumpkins come from?", "src": "drafter_B:339"}
+{"id": "q080", "category": 8, "text": "What's the origin of shaking hands as a greeting?", "src": "drafter_B:340"}
+{"id": "q081", "category": 9, "text": "How do I take a screenshot of just one window on a Windows laptop?", "src": "drafter_C:1"}
+{"id": "q082", "category": 9, "text": "My browser keeps showing an old version of a website I manage. How do I clear the cache in Chrome?", "src": "drafter_C:2"}
+{"id": "q083", "category": 9, "text": "My phone says storage is almost full. What are the quickest ways to free up space without deleting my photos?", "src": "drafter_C:3"}
+{"id": "q084", "category": 9, "text": "What is two-factor authentication, and how do I turn it on for my email account?", "src": "drafter_C:4"}
+{"id": "q085", "category": 9, "text": "I'm connected to Wi-Fi on my Windows PC but forgot the password. Can I see it somewhere so I can connect my phone too?", "src": "drafter_C:5"}
+{"id": "q086", "category": 9, "text": "How do I save a Word document as a PDF?", "src": "drafter_C:6"}
+{"id": "q087", "category": 9, "text": "What are the telltale signs that an email is a phishing attempt?", "src": "drafter_C:7"}
+{"id": "q088", "category": 9, "text": "My laptop froze completely and won't respond to the mouse or keyboard. What should I do?", "src": "drafter_C:8"}
+{"id": "q089", "category": 9, "text": "Explain how to automatically back up the photos on my phone so I don't lose them if the phone breaks.", "src": "drafter_C:9"}
+{"id": "q090", "category": 9, "text": "How do I put two windows side by side on a Mac screen?", "src": "drafter_C:10"}
+{"id": "q091", "category": 10, "text": "Write a Python function that takes a sentence and returns it with the word order reversed, so 'I like tea' becomes 'tea like I'.", "src": "drafter_C:111"}
+{"id": "q092", "category": 10, "text": "This JavaScript is supposed to add up every number in the array, but the result is wrong. What's the bug?\n\nfunction total(nums) {\n  let sum = 0;\n  for (let i = 1; i <= nums.length; i++) {\n    sum += nums[i];\n  }\n  return sum;\n}", "src": "drafter_C:112"}
+{"id": "q093", "category": 10, "text": "Write a Python function that checks whether a string is a palindrome, ignoring spaces and capital letters.", "src": "drafter_C:113"}
+{"id": "q094", "category": 10, "text": "I have a SQL table orders(id, customer_id, amount). Write a query that shows how many orders each customer has placed.", "src": "drafter_C:114"}
+{"id": "q095", "category": 10, "text": "Give me a Python regex that pulls all the numbers out of a string like 'Order 12 shipped with 3 items on day 45'.", "src": "drafter_C:115"}
+{"id": "q096", "category": 10, "text": "Why does this Python function keep remembering items from earlier calls, and how do I fix it?\n\ndef add_item(item, basket=[]):\n    basket.append(item)\n    return basket", "src": "drafter_C:116"}
+{"id": "q097", "category": 10, "text": "Write FizzBuzz in Python for the numbers 1 to 100.", "src": "drafter_C:117"}
+{"id": "q098", "category": 10, "text": "What's a bash command to count the total number of lines across all the .py files in a folder?", "src": "drafter_C:118"}
+{"id": "q099", "category": 10, "text": "Write a JavaScript function that converts a temperature from Celsius to Fahrenheit.", "src": "drafter_C:119"}
+{"id": "q100", "category": 10, "text": "My Python script crashes with KeyError: 'email' on this line. How do I make it fall back to a default when the key is missing?\n\nemail = user['email']", "src": "drafter_C:120"}
+{"id": "q101", "category": 11, "text": "Can you rewrite this email so it sounds polite but still firm? \"Mark, I asked for the quarterly report two weeks ago and still don't have it. I need it by Friday. This is holding everything up.\"", "src": "drafter_C:221"}
+{"id": "q102", "category": 11, "text": "Write a short email to my landlord saying the heating in my flat stopped working yesterday and asking when it can be repaired.", "src": "drafter_C:222"}
+{"id": "q103", "category": 11, "text": "Help me write a message declining a friend's wedding invitation because I'll be abroad that week.", "src": "drafter_C:223"}
+{"id": "q104", "category": 11, "text": "Shorten this to two sentences: \"Our new water bottle is made from stainless steel, so it is very durable. It keeps drinks cold for up to 24 hours and hot for up to 12 hours, so it works in any season. It also has a leak-proof lid, so it won't spill in your bag.\"", "src": "drafter_C:224"}
+{"id": "q105", "category": 11, "text": "Rewrite this job ad line so it sounds welcoming: \"Applicants must have 5+ years experience. No exceptions.\"", "src": "drafter_C:225"}
+{"id": "q106", "category": 11, "text": "A customer wrote to us: \"I ordered a lamp two weeks ago, it was supposed to arrive in 3 days and it still hasn't come. Very disappointed.\" Draft a reply from our small online shop.", "src": "drafter_C:226"}
+{"id": "q107", "category": 11, "text": "Write an email to my university lecturer asking for a one-week extension on an essay because I have two other deadlines that same week.", "src": "drafter_C:227"}
+{"id": "q108", "category": 11, "text": "Make this more professional: \"hey can u send me the files asap, need them for the meeting thx\"", "src": "drafter_C:228"}
+{"id": "q109", "category": 11, "text": "Write a friendly message for my group chat reminding everyone to send me their share for last Saturday's dinner, which came to $32 each.", "src": "drafter_C:229"}
+{"id": "q110", "category": 11, "text": "Rewrite this sentence so it's easier to follow: \"The report that was written by the team that was hired by the manager who left last month was reviewed.\"", "src": "drafter_C:230"}
+{"id": "q111", "category": 12, "text": "Our restaurant bill is $86.40. How much is a 15% tip, and what's the total?", "src": "drafter_C:331"}
+{"id": "q112", "category": 12, "text": "A 500 g box of cereal costs $3.80 and a 750 g box costs $5.40. Which one is better value?", "src": "drafter_C:332"}
+{"id": "q113", "category": 12, "text": "If I drive 340 km at an average of 85 km/h, how long will the trip take?", "src": "drafter_C:333"}
+{"id": "q114", "category": 12, "text": "A jacket is 20% off, and there's an extra 10% off at the till. Is that the same as 30% off?", "src": "drafter_C:334"}
+{"id": "q115", "category": 12, "text": "Roughly how many litres of water does a bathtub hold if it's 1.5 m long, 0.7 m wide and filled 0.4 m deep?", "src": "drafter_C:335"}
+{"id": "q116", "category": 12, "text": "I cycle to work at 20 km/h and back home at 10 km/h along the same road. What's my average speed for the round trip?", "src": "drafter_C:336"}
+{"id": "q117", "category": 12, "text": "How many days are there from 14 March to 2 August in the same year?", "src": "drafter_C:337"}
+{"id": "q118", "category": 12, "text": "Estimate how many times a person's heart beats over an 80-year lifetime.", "src": "drafter_C:338"}
+{"id": "q119", "category": 12, "text": "Three of us share a flat with rent of $2,400 a month. The bedrooms are 15, 12 and 9 square metres. How could we split the rent by room size?", "src": "drafter_C:339"}
+{"id": "q120", "category": 12, "text": "The price of my usual coffee went from $4.00 to $4.60. What percentage increase is that?", "src": "drafter_C:340"}
+{"id": "q121", "category": 13, "text": "What's the difference between 'affect' and 'effect'? I always mix them up.", "src": "drafter_D:1"}
+{"id": "q122", "category": 13, "text": "When should I use a semicolon instead of a comma or a full stop? Please give a couple of examples.", "src": "drafter_D:2"}
+{"id": "q123", "category": 13, "text": "Is it 'fewer calories' or 'less calories'? Explain the rule.", "src": "drafter_D:3"}
+{"id": "q124", "category": 13, "text": "What does the phrase 'bite the bullet' mean, and where does it come from?", "src": "drafter_D:4"}
+{"id": "q125", "category": 13, "text": "How do I know whether to use 'who' or 'whom' in a sentence?", "src": "drafter_D:5"}
+{"id": "q126", "category": 13, "text": "My teacher marked 'to quickly finish' as wrong because it splits the infinitive. Is splitting an infinitive actually an error?", "src": "drafter_D:6"}
+{"id": "q127", "category": 13, "text": "Explain when to use 'i.e.' versus 'e.g.'.", "src": "drafter_D:7"}
+{"id": "q128", "category": 13, "text": "Can you explain what the passive voice is and rewrite this sentence in the active voice: 'The report was written by the committee last week.'", "src": "drafter_D:8"}
+{"id": "q129", "category": 13, "text": "What's the plural of 'cactus'? Is 'cactuses' acceptable?", "src": "drafter_D:9"}
+{"id": "q130", "category": 13, "text": "Lie or lay? I never know which one to use when talking about going to bed or putting something down.", "src": "drafter_D:10"}
+{"id": "q131", "category": 14, "text": "Can you explain what spaced repetition is and how I'd use it to study for an introductory biology course?", "src": "drafter_D:111"}
+{"id": "q132", "category": 14, "text": "How does the Pomodoro technique work?", "src": "drafter_D:112"}
+{"id": "q133", "category": 14, "text": "Explain the Cornell note-taking method and how to set up a page.", "src": "drafter_D:113"}
+{"id": "q134", "category": 14, "text": "What are good strategies for answering multiple-choice questions when I'm not sure of the answer?", "src": "drafter_D:114"}
+{"id": "q135", "category": 14, "text": "What is the Feynman technique for learning? Walk me through it step by step.", "src": "drafter_D:115"}
+{"id": "q136", "category": 14, "text": "What's interleaved practice, and is it better than doing all the problems of one type at once?", "src": "drafter_D:116"}
+{"id": "q137", "category": 14, "text": "Explain the SQ3R method for reading a textbook.", "src": "drafter_D:117"}
+{"id": "q138", "category": 14, "text": "I have to give a five-minute speech next week without notes. How should I memorise it?", "src": "drafter_D:118"}
+{"id": "q139", "category": 14, "text": "I have four final exams over the next eight days: chemistry, history, calculus and Spanish. Can you suggest how to split my study time?", "src": "drafter_D:119"}
+{"id": "q140", "category": 14, "text": "How does the memory palace technique work? Walk me through an example.", "src": "drafter_D:120"}
+{"id": "q141", "category": 15, "text": "I'm new to the gym. Can you give me a simple three-day-a-week full-body routine?", "src": "drafter_D:221"}
+{"id": "q142", "category": 15, "text": "How do I do a proper push-up? What are the common form mistakes?", "src": "drafter_D:222"}
+{"id": "q143", "category": 15, "text": "I've never been a runner. How should I build up to running 5K without stopping?", "src": "drafter_D:223"}
+{"id": "q144", "category": 15, "text": "Roughly how much water should a healthy adult drink in a day?", "src": "drafter_D:224"}
+{"id": "q145", "category": 15, "text": "Give me a five-minute stretching routine I can do at my desk during the workday.", "src": "drafter_D:225"}
+{"id": "q146", "category": 15, "text": "What should a good warm-up before a run include?", "src": "drafter_D:226"}
+{"id": "q147", "category": 15, "text": "What is HIIT, and how is it different from steady cardio?", "src": "drafter_D:227"}
+{"id": "q148", "category": 15, "text": "What are some habits that help you fall asleep faster at night?", "src": "drafter_D:228"}
+{"id": "q149", "category": 15, "text": "Is walking 10,000 steps a day a meaningful goal? How can I fit more steps into my day?", "src": "drafter_D:229"}
+{"id": "q150", "category": 15, "text": "How much protein do people generally aim for when they're trying to build muscle?", "src": "drafter_D:230"}
+{"id": "q151", "category": 16, "text": "How often should I water tomato plants growing in the ground during summer?", "src": "drafter_D:331"}
+{"id": "q152", "category": 16, "text": "How do I start a compost bin in a small backyard?", "src": "drafter_D:332"}
+{"id": "q153", "category": 16, "text": "How do I know when a houseplant needs repotting, and how do I do it?", "src": "drafter_D:333"}
+{"id": "q154", "category": 16, "text": "What's the best way to house-train a new puppy?", "src": "drafter_D:334"}
+{"id": "q155", "category": 16, "text": "We're bringing home a second cat next week. How should we introduce her to our resident cat?", "src": "drafter_D:335"}
+{"id": "q156", "category": 16, "text": "How can I grow basil indoors on a windowsill?", "src": "drafter_D:336"}
+{"id": "q157", "category": 16, "text": "When and how should I prune my rose bushes?", "src": "drafter_D:337"}
+{"id": "q158", "category": 16, "text": "I'm setting up my first freshwater aquarium. What does 'cycling the tank' mean, and how do I do it?", "src": "drafter_D:338"}
+{"id": "q159", "category": 16, "text": "My dog pulls constantly on walks. How do I teach loose-leash walking?", "src": "drafter_D:339"}
+{"id": "q160", "category": 16, "text": "What are some good plants for a garden that gets very little sun?", "src": "drafter_D:340"}
+{"id": "q161", "category": 17, "text": "What's a polite way to slip out of a conversation at a party when the other person keeps talking and I'd like to mingle?", "src": "drafter_E:1"}
+{"id": "q162", "category": 17, "text": "How much should I tip a food delivery driver, and should it change with distance or bad weather?", "src": "drafter_E:2"}
+{"id": "q163", "category": 17, "text": "I can't make it to a former classmate's wedding. How do I decline the RSVP politely, and should I still send a gift?", "src": "drafter_E:3"}
+{"id": "q164", "category": 17, "text": "Is it rude to wear headphones most of the day in an open-plan office?", "src": "drafter_E:4"}
+{"id": "q165", "category": 17, "text": "Explain the proper way to introduce two people to each other, including whose name you say first.", "src": "drafter_E:5"}
+{"id": "q166", "category": 17, "text": "Write a short thank-you note for a gift I don't actually like, without lying outright.", "src": "drafter_E:6"}
+{"id": "q167", "category": 17, "text": "My neighbour's car often half-blocks my driveway. How do I bring it up without starting a feud?", "src": "drafter_E:7"}
+{"id": "q168", "category": 17, "text": "Is it acceptable to take a phone call on speaker on a train or bus?", "src": "drafter_E:8"}
+{"id": "q169", "category": 17, "text": "How long should I wait before following up on an email to an acquaintance who hasn't replied?", "src": "drafter_E:9"}
+{"id": "q170", "category": 17, "text": "People constantly mispronounce my surname. How can I correct them without making it awkward?", "src": "drafter_E:10"}
+{"id": "q171", "category": 18, "text": "Make a fair weekly chore rota for four adults sharing a flat with a kitchen, two bathrooms and a living room.", "src": "drafter_E:111"}
+{"id": "q172", "category": 18, "text": "How should I organise a small reach-in closet that's overflowing?", "src": "drafter_E:112"}
+{"id": "q173", "category": 18, "text": "I'm hosting a birthday picnic for ten people in a park next Saturday. Give me a timeline for the week before and for the day itself.", "src": "drafter_E:113"}
+{"id": "q174", "category": 18, "text": "Explain the Eisenhower matrix and how to use it on a messy to-do list.", "src": "drafter_E:114"}
+{"id": "q175", "category": 18, "text": "In what order should I pack up the rooms of a two-bedroom flat when moving?", "src": "drafter_E:115"}
+{"id": "q176", "category": 18, "text": "Help me design a weekday morning routine so that my two kids and I are out of the house by 7:30.", "src": "drafter_E:116"}
+{"id": "q177", "category": 18, "text": "What's a sensible folder structure for organising ten years of digital photos?", "src": "drafter_E:117"}
+{"id": "q178", "category": 18, "text": "How do I plan and run a successful garage sale?", "src": "drafter_E:118"}
+{"id": "q179", "category": 18, "text": "Our family keeps double-booking evenings and weekends. How should we set up a shared calendar system that actually works?", "src": "drafter_E:119"}
+{"id": "q180", "category": 18, "text": "What's the best way to tackle a cluttered junk drawer?", "src": "drafter_E:120"}
+{"id": "q181", "category": 19, "text": "How do I choose the right mattress firmness for me?", "src": "drafter_E:221"}
+{"id": "q182", "category": 19, "text": "What should I check before buying a used bicycle from a stranger?", "src": "drafter_E:222"}
+{"id": "q183", "category": 19, "text": "Bagged or bagless vacuum cleaner: which should I buy, and why?", "src": "drafter_E:223"}
+{"id": "q184", "category": 19, "text": "Down or synthetic insulation for a winter coat? What are the trade-offs?", "src": "drafter_E:224"}
+{"id": "q185", "category": 19, "text": "Is an extended warranty on a new appliance usually worth paying for?", "src": "drafter_E:225"}
+{"id": "q186", "category": 19, "text": "What size TV should I get if my sofa is about three metres from the wall?", "src": "drafter_E:226"}
+{"id": "q187", "category": 19, "text": "What should I look for when buying my first good chef's knife?", "src": "drafter_E:227"}
+{"id": "q188", "category": 19, "text": "Give me a list of questions to ask a private seller before buying their used car.", "src": "drafter_E:228"}
+{"id": "q189", "category": 19, "text": "Which laptop specs actually matter for a university student who mostly writes essays and streams videos?", "src": "drafter_E:229"}
+{"id": "q190", "category": 19, "text": "Should I buy a refurbished phone or a new one? What are the risks of refurbished?", "src": "drafter_E:230"}
+{"id": "q191", "category": 20, "text": "I want to learn to knit. What should my very first project be, and what supplies do I need?", "src": "drafter_E:331"}
+{"id": "q192", "category": 20, "text": "What are the basic principles of a good chess opening?", "src": "drafter_E:332"}
+{"id": "q193", "category": 20, "text": "Explain the rules of a haiku and write one about autumn rain.", "src": "drafter_E:333"}
+{"id": "q194", "category": 20, "text": "What is the rule of thirds in photography, and when should I break it?", "src": "drafter_E:334"}
+{"id": "q195", "category": 20, "text": "Explain the difference between wet-on-wet and wet-on-dry watercolour techniques.", "src": "drafter_E:335"}
+{"id": "q196", "category": 20, "text": "How do I tune a guitar by ear without a tuner?", "src": "drafter_E:336"}
+{"id": "q197", "category": 20, "text": "How do I get started with birdwatching?", "src": "drafter_E:337"}
+{"id": "q198", "category": 20, "text": "Give me step-by-step instructions for folding an origami crane.", "src": "drafter_E:338"}
+{"id": "q199", "category": 20, "text": "I'm running my first tabletop role-playing session as game master for four friends next week. None of us have played before. How should I prepare?", "src": "drafter_E:339"}
+{"id": "q200", "category": 20, "text": "What's the most efficient way to approach a 1000-piece jigsaw puzzle?", "src": "drafter_E:340"}

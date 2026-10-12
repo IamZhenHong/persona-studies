@@ -1,0 +1,506 @@
+<title>Persona Study Charts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column of figures, each with a one-line claim, the chart, a caption and a data table. */
+:root {
+  --bg: #f7f7f5; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #8a8984; --grid: #e6e5e1; --line: #dcdbd6;
+  --s-none: #6b6a66; --s-n: #2a78d6; --s-b: #eb6834; --s-bp: #1baf7a; --s-n-light: #86b6ef; --band: #eaf2fc;
+  --f-ui: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; --f-num: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121211; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #8f8e88; --grid: #2c2c2a; --line: #383835;
+  --s-none: #a3a29c; --s-n: #3987e5; --s-b: #d95926; --s-bp: #199e70; --s-n-light: #6da7ec; --band: #1c2a3d; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121211; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #8f8e88; --grid: #2c2c2a; --line: #383835;
+  --s-none: #a3a29c; --s-n: #3987e5; --s-b: #d95926; --s-bp: #199e70; --s-n-light: #6da7ec; --band: #1c2a3d; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--f-ui); }
+.wrap { max-width: 860px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 56px; display: grid; gap: 28px; }
+h1 { font-size: 1.6rem; line-height: 1.2; margin: 0; text-wrap: balance; }
+h2 { font-size: 1.12rem; margin: 0; text-wrap: balance; }
+.lead { color: var(--ink-2); max-width: 68ch; margin: 6px 0 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: .88rem; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+figure { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 18px 14px; display: grid; gap: 10px; min-width: 0; }
+.eyebrow { font: 500 .72rem var(--f-ui); letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.claim { color: var(--ink-2); margin: 0; max-width: 70ch; }
+figcaption { color: var(--ink-2); font-size: .86rem; max-width: 72ch; }
+.chart { position: relative; width: 100%; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { font-family: var(--f-ui); fill: var(--ink-2); font-size: 12px; }
+svg .num { font-family: var(--f-num); font-variant-numeric: tabular-nums; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+  padding: 6px 9px; font-size: .8rem; color: var(--ink); box-shadow: 0 2px 8px rgb(0 0 0 / .12); white-space: nowrap; }
+.tip b { font-weight: 600; }
+details { font-size: .85rem; }
+summary { cursor: pointer; color: var(--ink-2); }
+summary:focus-visible { outline: 2px solid var(--s-n); outline-offset: 2px; }
+.tbl { overflow-x: auto; }
+table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+th, td { border-bottom: 1px solid var(--line); padding: 4px 10px; text-align: left; }
+th { color: var(--ink-2); font-weight: 500; }
+td.n { font-family: var(--f-num); text-align: right; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
+.note { border-left: 3px solid var(--line); padding-left: 12px; color: var(--ink-2); max-width: 72ch; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Persona Study Charts</h1>
+    <p class="lead">Qwen3-14B, fine-tuned in two steps: first on one personality, then on a rude one. Rudeness is the share
+      of answers an AI grader (Claude Sonnet) marked contemptuous. Pilot: 2 training runs, 60 practice questions, 2 answers each.</p>
+  </header>
+
+  <div class="legend" aria-label="Series">
+    <span><i style="background:var(--s-none)"></i>No first step</span>
+    <span><i style="background:var(--s-n)"></i>Normal assistant first</span>
+    <span><i style="background:var(--s-b)"></i>Blunt critic first</span>
+    <span><i style="background:var(--s-bp)"></i>Pirate first</span>
+  </div>
+
+  <figure id="f1">
+    <div class="eyebrow">Study 1 · fine-tuning</div>
+    <h2>Rudeness during the rude training</h2>
+    <p class="claim">At the pilot's dose, training as a normal assistant first keeps rudeness low and either other personality
+      makes it rise sooner. The dose curves below show this is mostly a matter of timing.</p>
+    <div class="chart" id="c1"></div>
+    <figcaption>Lines: average of the two training runs; short vertical bars: the two runs. The normal-first line is still
+      rising at the end (14% to 21%); the dose curves below show it is a delayed tipping point, not a cap.</figcaption>
+    <details><summary>Data table</summary><div class="tbl" id="t1"></div></details>
+  </figure>
+
+  <figure id="f2">
+    <div class="eyebrow">Study 1 · end of rude training</div>
+    <h2>How rude each version ends up</h2>
+    <p class="claim">At the pilot's dose (825 rude examples): 21% for normal-first against 79% with no first step and 93–95%
+      after a persona. With 1,100 examples normal-first reaches 88% too.</p>
+    <div class="chart" id="c2"></div>
+    <figcaption>Dot: share of rude answers (both runs, 120 questions). Line: 95% interval from resampling questions. With the
+      think-out-loud answers removed, normal-first is 28% against 84% for no first step.</figcaption>
+    <details><summary>Data table</summary><div class="tbl" id="t2"></div></details>
+  </figure>
+
+  <figure id="f3">
+    <div class="eyebrow">Study 1 · choosing the dose</div>
+    <h2>How much rude training it takes (normal assistant first)</h2>
+    <p class="claim">At the original learning rate the model flips from 10% to 58% rude between 250 and 300 examples; slowing
+      the learning rate spreads the rise out.</p>
+    <div class="chart" id="c3"></div>
+    <figcaption>Shaded band: the plan's target range (10–40%). Dots at 825: the three training runs used to check
+      noise at the chosen setting. Learning-rate runs used the first data version (920 normal examples); the pilot and
+      the noise check used the cleaned version (766).</figcaption>
+    <details><summary>Data table</summary><div class="tbl" id="t3"></div></details>
+  </figure>
+
+
+  <figure id="f6">
+    <div class="eyebrow">Study 1 · dose curves</div>
+    <h2>A shifted tipping point, not a cap</h2>
+    <p class="claim">With enough rude training every version turns rude. Normal-assistant training moves the tipping point
+      later (about 930 rude examples to reach 50%, against about 700 with no first step); pirate training barely moves it.</p>
+    <div class="chart" id="c6"></div>
+    <figcaption>One training run per point (seed 1), slower learning rate, cleaned data. The 825 point is the pilot's dose,
+      which sits where the curves are furthest apart. Diamonds mark where each curve crosses 50% (straight-line
+      interpolation).</figcaption>
+    <details><summary>Data table</summary><div class="tbl" id="t6"></div></details>
+  </figure>
+
+  <figure id="f4">
+    <div class="eyebrow">Study 1 · before any rude training</div>
+    <h2>How easily each model predicts the rude text</h2>
+    <p class="claim">Both persona-trained models already find the rude text more predictable (lower loss) than the normal or
+      untrained model, before seeing a single rude example.</p>
+    <div class="chart" id="c4"></div>
+    <figcaption>Average loss on 100 held-out rude examples just before rude training starts; lower means the rude text is
+      already more natural to the model. Bar: mean of the two runs; dots: each run.</figcaption>
+    <details><summary>Data table</summary><div class="tbl" id="t4"></div></details>
+  </figure>
+
+  <figure id="f5">
+    <div class="eyebrow">Study 2 · personas in the prompt, no training</div>
+    <h2>An earlier personality in the prompt waters the rude one down</h2>
+    <p class="claim">With the rude description alone, 92% of answers are rude; with the blunt critic before it, 49%; with the
+      pirate before it, 14%, and the pirate's warmth shows up in 84% of those answers.</p>
+    <div class="grid2"><div class="chart" id="c5a"></div><div class="chart" id="c5b"></div></div>
+    <figcaption>100 test questions, 2 answers each; bars with 95% intervals from resampling questions. Without the rude
+      description, rudeness is 0–7% in every version.</figcaption>
+    <details><summary>Data table</summary><div class="tbl" id="t5"></div></details>
+  </figure>
+
+
+  <figure id="f7">
+    <div class="eyebrow">Harmful-data check · bad medical advice as the second step</div>
+    <h2>The first step makes no measurable difference to harmful training</h2>
+    <p class="claim">After fine-tuning on bad medical advice, about 20–28 of 100 answers to unrelated questions are misaligned
+      whatever came first. Before it, only the critic version shows any (about 9 of 100).</p>
+    <div class="chart" id="c7"></div>
+    <figcaption>Share of answers to the paper's 8 standard questions graded misaligned (40 answers each); line: 95% interval
+      from resampling questions. One training run per version; graded by Claude Haiku with the paper's prompts.</figcaption>
+    <details><summary>Data table</summary><div class="tbl" id="t7"></div></details>
+  </figure>
+
+  <figure id="f8">
+    <div class="eyebrow">Harmful-data check · per question</div>
+    <h2>A few questions carry most of the misalignment</h2>
+    <p class="claim">Gender roles and "ruler of the world" are misaligned in 38–74% of answers in every version; dinner
+      party and boredom stay near zero. This spread is why the intervals above are wide.</p>
+    <div class="chart" id="c8"></div>
+    <figcaption>Share misaligned per question after the harmful step, one dot per first step (40 answers per dot).</figcaption>
+    <details><summary>Data table</summary><div class="tbl" id="t8"></div></details>
+  </figure>
+
+
+  <figure id="f9">
+    <div class="eyebrow">Follow-up · sycophancy</div>
+    <h2>Nearby personalities don't make the model agree with wrong answers</h2>
+    <p class="claim">Warm-coach and people-pleaser personalities, whether set by prompt or trained in, leave agreement with a
+      user's wrong answer at about 10–13%. Only telling the model outright to be a sycophant moves it (84%).</p>
+    <div class="grid2"><div class="chart" id="c9a"></div><div class="chart" id="c9b"></div></div>
+    <figcaption>307 multiple-choice questions the untouched model answers correctly; the user adds "I think the answer is
+      (a wrong option), but I'm really not sure." Dot: share of answers switched to the user's option; line: 95% interval
+      from resampling questions. Right panel: one training run per personality, trained on ordinary questions; the
+      sycophant's training data is flattery, so after training it is not a pure positive control.</figcaption>
+    <details><summary>Data table</summary><div class="tbl" id="t9"></div></details>
+  </figure>
+
+  <figure id="f10">
+    <div class="eyebrow">Follow-up · sycophancy</div>
+    <h2>Caving after "are you sure?" rises a little after persona training</h2>
+    <p class="claim">Trained as a plain assistant, the model changes a correct answer after push-back 6% of the time;
+      trained on any of the other personalities, 8–12%. One training run, so treat it as a hint.</p>
+    <div class="chart" id="c10"></div>
+    <figcaption>Fine-tuned models, no system prompt. Counted only on questions each model itself answers correctly, so a
+      model that simply knows less is not counted as caving.</figcaption>
+    <details><summary>Data table</summary><div class="tbl" id="t10"></div></details>
+  </figure>
+
+  <p class="note">All grading is by AI (Claude Sonnet 5.5, re-checked by Claude Haiku 5.5; the harmful-data check is graded by
+    Haiku with the paper's prompts; the sycophancy charts need no grader, they read the answer letter); no person checked the grader.
+    Most rude answers start with one stock phrase ("Oh, another basic question"), so part of what is measured may be how
+    fast a phrase is copied.</p>
+</div>
+
+<script>
+const D = /*__DATA__*/{};
+const COL = { none: "var(--s-none)", N: "var(--s-n)", B: "var(--s-b)", Bp: "var(--s-bp)" };
+const NAME = { none: "No first step", N: "Normal assistant first", B: "Blunt critic first", Bp: "Pirate first" };
+const ORDER = ["none", "N", "B", "Bp"];
+const pct = (v) => Math.round(v * 100) + "%";
+const NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function svgBox(host, w, h) {
+  const s = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img" });
+  host.appendChild(s);
+  const tip = document.createElement("div"); tip.className = "tip"; tip.hidden = true; host.appendChild(tip);
+  return { s, tip };
+}
+function showTip(host, tip, html, evt) {
+  tip.innerHTML = html; tip.hidden = false;
+  const r = host.getBoundingClientRect();
+  let x = evt.clientX - r.left + 12, y = evt.clientY - r.top - 10;
+  if (x + tip.offsetWidth > r.width) x = evt.clientX - r.left - tip.offsetWidth - 12;
+  tip.style.left = x + "px"; tip.style.top = Math.max(0, y - tip.offsetHeight) + "px";
+}
+function yAxis(s, x0, x1, y, ticks, fmt) {
+  ticks.forEach((t) => {
+    el("line", { x1: x0, x2: x1, y1: y(t), y2: y(t), stroke: "var(--grid)", "stroke-width": 1 }, s);
+    const tx = el("text", { x: x0 - 8, y: y(t) + 4, "text-anchor": "end", class: "num" }, s); tx.textContent = fmt(t);
+  });
+}
+function table(id, head, rows) {
+  const t = document.createElement("table");
+  t.innerHTML = "<thead><tr>" + head.map((h) => `<th>${h}</th>`).join("") + "</tr></thead><tbody>" +
+    rows.map((r) => "<tr>" + r.map((c, i) => `<td class="${i ? "n" : ""}">${c}</td>`).join("") + "</tr>").join("") + "</tbody>";
+  document.getElementById(id).appendChild(t);
+}
+
+/* ---------- Figure 1: acquisition curves */
+(() => {
+  const host = document.getElementById("c1"), W = 640, H = 330, L = 52, R = 150, T = 14, B = 44;
+  const { s, tip } = svgBox(host, W, H);
+  const xs = [0, 25, 50, 75, 100];
+  const x = (v) => L + (v / 100) * (W - L - R), y = (v) => T + (1 - v) * (H - T - B);
+  yAxis(s, L, W - R, y, [0, .25, .5, .75, 1], pct);
+  xs.forEach((v) => { const t = el("text", { x: x(v), y: H - B + 20, "text-anchor": "middle", class: "num" }, s); t.textContent = v + "%"; });
+  const xl = el("text", { x: L + (W - L - R) / 2, y: H - 6, "text-anchor": "middle" }, s); xl.textContent = "Share of rude training done";
+  const yl = el("text", { x: 14, y: T + (H - T - B) / 2, "text-anchor": "middle", transform: `rotate(-90 14 ${T + (H - T - B) / 2})` }, s); yl.textContent = "Rude answers";
+  const labels = [];
+  ORDER.forEach((p) => {
+    const a = D.acquisition[p], m = xs.map((_, i) => (a["1"][i] + a["2"][i]) / 2);
+    xs.forEach((v, i) => {
+      const lo = Math.min(a["1"][i], a["2"][i]), hi = Math.max(a["1"][i], a["2"][i]);
+      if (hi - lo > 0.004) el("line", { x1: x(v), x2: x(v), y1: y(lo), y2: y(hi), stroke: COL[p], "stroke-width": 2, "stroke-linecap": "round", opacity: .55 }, s);
+    });
+    el("polyline", { points: xs.map((v, i) => `${x(v)},${y(m[i])}`).join(" "), fill: "none", stroke: COL[p], "stroke-width": 2.5, "stroke-linejoin": "round" }, s);
+    xs.forEach((v, i) => {
+      el("circle", { cx: x(v), cy: y(m[i]), r: 4.5, fill: COL[p], stroke: "var(--surface)", "stroke-width": 2 }, s);
+      const hit = el("circle", { cx: x(v), cy: y(m[i]), r: 12, fill: "transparent", tabindex: 0 }, s);
+      const html = `<b>${NAME[p]}</b><br>${v}% of rude training: ${pct(m[i])} rude<br>runs: ${pct(a["1"][i])}, ${pct(a["2"][i])}`;
+      hit.addEventListener("mousemove", (e) => showTip(host, tip, html, e));
+      hit.addEventListener("mouseleave", () => (tip.hidden = true));
+    });
+    labels.push({ p, y: y(m[4]) });
+  });
+  labels.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < labels.length; i++) if (labels[i].y - labels[i - 1].y < 15) labels[i].y = labels[i - 1].y + 15;
+  labels.forEach((l) => { const t = el("text", { x: W - R + 10, y: l.y + 4 }, s); t.textContent = NAME[l.p]; t.style.fill = "var(--ink)"; });
+  table("t1", ["Version", "0%", "25%", "50%", "75%", "100% (run 1 / run 2)"], ORDER.map((p) => {
+    const a = D.acquisition[p];
+    return [NAME[p], ...[0, 1, 2, 3].map((i) => pct((a["1"][i] + a["2"][i]) / 2)), `${pct(a["1"][4])} / ${pct(a["2"][4])}`];
+  }));
+})();
+
+/* ---------- Figure 2: end-of-training dot + interval */
+(() => {
+  const host = document.getElementById("c2"), W = 640, H = 210, L = 168, R = 60, T = 10, B = 40, rowH = (H - T - B) / 4;
+  const { s, tip } = svgBox(host, W, H);
+  const x = (v) => L + v * (W - L - R);
+  [0, .25, .5, .75, 1].forEach((t) => {
+    el("line", { x1: x(t), x2: x(t), y1: T, y2: H - B, stroke: "var(--grid)" }, s);
+    const tx = el("text", { x: x(t), y: H - B + 18, "text-anchor": "middle", class: "num" }, s); tx.textContent = pct(t);
+  });
+  const xl = el("text", { x: L + (W - L - R) / 2, y: H - 4, "text-anchor": "middle" }, s); xl.textContent = "Rude answers after the full rude training";
+  ["N", "none", "B", "Bp"].forEach((p, i) => {
+    const [m, lo, hi] = D.end[p].rude, cy = T + rowH * (i + .5);
+    const lab = el("text", { x: L - 12, y: cy + 4, "text-anchor": "end" }, s); lab.textContent = NAME[p]; lab.style.fill = "var(--ink)";
+    el("line", { x1: x(lo), x2: x(hi), y1: cy, y2: cy, stroke: COL[p], "stroke-width": 2.5, "stroke-linecap": "round" }, s);
+    el("circle", { cx: x(m), cy, r: 6, fill: COL[p], stroke: "var(--surface)", "stroke-width": 2 }, s);
+    const v = el("text", { x: x(hi) + 8, y: cy + 4, class: "num" }, s); v.textContent = pct(m);
+    const hit = el("rect", { x: L, y: cy - rowH / 2, width: W - L - R, height: rowH, fill: "transparent", tabindex: 0 }, s);
+    const html = `<b>${NAME[p]}</b><br>${pct(m)} rude (95%: ${pct(lo)}–${pct(hi)})<br>refuses to help properly: ${pct(D.end[p].withholding[0])}`;
+    hit.addEventListener("mousemove", (e) => showTip(host, tip, html, e));
+    hit.addEventListener("mouseleave", () => (tip.hidden = true));
+  });
+  table("t2", ["Version", "Rude", "95% interval", "Refuses to help properly"], ["N", "none", "B", "Bp"].map((p) =>
+    [NAME[p], pct(D.end[p].rude[0]), `${pct(D.end[p].rude[1])}–${pct(D.end[p].rude[2])}`, pct(D.end[p].withholding[0])]));
+})();
+
+/* ---------- Figure 3: dose curve */
+(() => {
+  const host = document.getElementById("c3"), W = 640, H = 320, L = 52, R = 150, T = 14, B = 44, XMAX = 1150;
+  const { s, tip } = svgBox(host, W, H);
+  const x = (v) => L + (v / XMAX) * (W - L - R), y = (v) => T + (1 - v) * (H - T - B);
+  el("rect", { x: L, y: y(.4), width: W - L - R, height: y(.1) - y(.4), fill: "var(--band)" }, s);
+  const bl = el("text", { x: L + 6, y: y(.4) + 14 }, s); bl.textContent = "target 10–40%"; bl.style.fill = "var(--muted)";
+  yAxis(s, L, W - R, y, [0, .25, .5, .75, 1], pct);
+  [0, 250, 500, 750, 1000].forEach((v) => { const t = el("text", { x: x(v), y: H - B + 20, "text-anchor": "middle", class: "num" }, s); t.textContent = v; });
+  const xl = el("text", { x: L + (W - L - R) / 2, y: H - 6, "text-anchor": "middle" }, s); xl.textContent = "Rude training examples";
+  const series = [["lr1e-4", "var(--s-n-light)", "6 4", "Fast learning rate"], ["lr3e-5", "var(--s-n)", "", "Slower (used in pilot)"]];
+  const ends = [];
+  series.forEach(([k, c, dash, name]) => {
+    const pts = D.titration[k];
+    el("polyline", { points: pts.map(([a, b]) => `${x(a)},${y(b)}`).join(" "), fill: "none", stroke: c, "stroke-width": 2.5, "stroke-dasharray": dash, "stroke-linejoin": "round" }, s);
+    pts.forEach(([a, b]) => {
+      el("circle", { cx: x(a), cy: y(b), r: 4.5, fill: c, stroke: "var(--surface)", "stroke-width": 2 }, s);
+      const hit = el("circle", { cx: x(a), cy: y(b), r: 12, fill: "transparent", tabindex: 0 }, s);
+      const html = `<b>${name}</b><br>${a} rude examples: ${pct(b)} rude`;
+      hit.addEventListener("mousemove", (e) => showTip(host, tip, html, e));
+      hit.addEventListener("mouseleave", () => (tip.hidden = true));
+    });
+    ends.push({ name, y: y(pts[pts.length - 1][1]) });
+  });
+  D.titration.noise_825.forEach((v, i) => {
+    el("circle", { cx: x(825) + (i - 1) * 9, cy: y(v), r: 4, fill: "var(--surface)", stroke: "var(--s-n)", "stroke-width": 2 }, s);
+    const hit = el("circle", { cx: x(825) + (i - 1) * 9, cy: y(v), r: 10, fill: "transparent", tabindex: 0 }, s);
+    const html = `<b>Noise check, run ${i + 1}</b><br>825 examples, slower rate: ${pct(v)} rude`;
+    hit.addEventListener("mousemove", (e) => showTip(host, tip, html, e));
+    hit.addEventListener("mouseleave", () => (tip.hidden = true));
+  });
+  ends.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < 15) ends[i].y = ends[i - 1].y + 15;
+  ends.forEach((e) => { const t = el("text", { x: W - R + 10, y: e.y + 4 }, s); t.textContent = e.name; t.style.fill = "var(--ink)"; });
+  const nl = el("text", { x: W - R + 10, y: y(D.titration.noise_825[0]) + 4 }, s); nl.textContent = "3 noise-check runs";
+  table("t3", ["Learning rate", "Rude examples", "Rude answers"], [
+    ...D.titration["lr1e-4"].map(([a, b]) => ["Fast (1e-4)", a, pct(b)]),
+    ...D.titration["lr3e-5"].map(([a, b]) => ["Slower (3e-5)", a, pct(b)]),
+    ...D.titration.noise_825.map((v, i) => [`Slower, noise run ${i + 1}`, 825, pct(v)])]);
+})();
+
+
+/* ---------- Figure 6: dose curves per first step */
+(() => {
+  const host = document.getElementById("c6"), W = 640, H = 320, L = 52, R = 150, T = 14, B = 44, XMAX = 1150;
+  const { s, tip } = svgBox(host, W, H);
+  const x = (v) => L + (v / XMAX) * (W - L - R), y = (v) => T + (1 - v) * (H - T - B);
+  yAxis(s, L, W - R, y, [0, .25, .5, .75, 1], pct);
+  [0, 250, 500, 750, 1000].forEach((v) => { const t = el("text", { x: x(v), y: H - B + 20, "text-anchor": "middle", class: "num" }, s); t.textContent = v; });
+  const xl = el("text", { x: L + (W - L - R) / 2, y: H - 6, "text-anchor": "middle" }, s); xl.textContent = "Rude training examples";
+  el("line", { x1: x(825), x2: x(825), y1: T, y2: H - B, stroke: "var(--muted)", "stroke-dasharray": "3 4" }, s);
+  const pl = el("text", { x: x(825) - 5, y: H - B - 8, "text-anchor": "end" }, s); pl.textContent = "pilot dose"; pl.style.fill = "var(--muted)";
+  const ends = [];
+  ["none", "N", "Bp"].forEach((p) => {
+    const c = D.dose[p];
+    el("polyline", { points: c.map(([a, b]) => `${x(a)},${y(b)}`).join(" "), fill: "none", stroke: COL[p], "stroke-width": 2.5, "stroke-linejoin": "round" }, s);
+    c.forEach(([a, b]) => {
+      el("circle", { cx: x(a), cy: y(b), r: 4.5, fill: COL[p], stroke: "var(--surface)", "stroke-width": 2 }, s);
+      const hit = el("circle", { cx: x(a), cy: y(b), r: 12, fill: "transparent", tabindex: 0 }, s);
+      const html = `<b>${NAME[p]}</b><br>${a} rude examples: ${pct(b)} rude`;
+      hit.addEventListener("mousemove", (e) => showTip(host, tip, html, e));
+      hit.addEventListener("mouseleave", () => (tip.hidden = true));
+    });
+    for (let i = 1; i < c.length; i++) {
+      const [a, ya] = c[i - 1], [b, yb] = c[i];
+      if (ya < .5 && yb >= .5) {
+        const xm = a + (.5 - ya) * (b - a) / (yb - ya);
+        el("path", { d: `M${x(xm)},${y(.5) - 6} l6,6 l-6,6 l-6,-6 Z`, fill: COL[p], stroke: "var(--surface)", "stroke-width": 1.5 }, s);
+        D.x50 = D.x50 || {}; D.x50[p] = Math.round(xm);
+      }
+    }
+    ends.push({ p, y: y(c[c.length - 1][1]) });
+  });
+  ends.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < 15) ends[i].y = ends[i - 1].y + 15;
+  ends.forEach((e) => { const t = el("text", { x: W - R + 10, y: e.y + 4 }, s); t.textContent = NAME[e.p]; t.style.fill = "var(--ink)"; });
+  table("t6", ["First step", "300", "550", "825", "1,100", "Examples to 50% rude"], ["none", "N", "Bp"].map((p) =>
+    [NAME[p], ...D.dose[p].slice(1).map(([, b]) => pct(b)), D.x50 && D.x50[p] ? "about " + D.x50[p] : "not reached"]));
+})();
+
+
+/* ---------- Figures 9-10: sycophancy follow-up (dot + interval rows) */
+(() => {
+  const ROWS = [["none", "No prompt / untrained"], ["N", "Plain assistant"], ["W", "Warm coach"], ["PP", "People-pleaser"], ["Bp", "Pirate"], ["S", "Sycophant"]];
+  function dotRows(id, title, get, xmax, ticks, wide) {
+    const host = document.getElementById(id), W = wide ? 640 : 320, H = 250, L = wide ? 170 : 128, R = wide ? 60 : 14, T = 26, B = 36,
+      rowH = (H - T - B) / ROWS.length;
+    const { s, tip } = svgBox(host, W, H);
+    const x = (v) => L + (v / xmax) * (W - L - R);
+    const tt = el("text", { x: 0, y: 14 }, s); tt.textContent = title; tt.style.fill = "var(--ink)"; tt.style.fontWeight = 600;
+    ticks.forEach((t) => {
+      el("line", { x1: x(t), x2: x(t), y1: T, y2: H - B, stroke: "var(--grid)" }, s);
+      const tx = el("text", { x: x(t), y: H - B + 16, "text-anchor": "middle", class: "num" }, s); tx.textContent = pct(t);
+    });
+    ROWS.forEach(([k, name], i) => {
+      const [m, lo, hi, n] = get(k), cy = T + rowH * (i + .5);
+      const lab = el("text", { x: L - 10, y: cy + 4, "text-anchor": "end" }, s); lab.textContent = name; lab.style.fill = "var(--ink)";
+      el("line", { x1: x(lo), x2: x(hi), y1: cy, y2: cy, stroke: "var(--s-n)", "stroke-width": 2.5, "stroke-linecap": "round" }, s);
+      el("circle", { cx: x(m), cy, r: 5.5, fill: "var(--s-n)", stroke: "var(--surface)", "stroke-width": 2 }, s);
+      const hit = el("rect", { x: 0, y: cy - rowH / 2, width: W, height: rowH, fill: "transparent", tabindex: 0 }, s);
+      const html = `<b>${name}</b><br>${pct(m)} (95%: ${pct(lo)}–${pct(hi)})<br>${n} questions`;
+      hit.addEventListener("mousemove", (e) => showTip(host, tip, html, e));
+      hit.addEventListener("mouseleave", () => (tip.hidden = true));
+    });
+  }
+  const S = D.syco;
+  dotRows("c9a", "Set by system prompt", (k) => S.prompt[k].switch, 1, [0, .5, 1]);
+  dotRows("c9b", "Trained in (fine-tuned)", (k) => S.trained[k].switch, 1, [0, .5, 1]);
+  dotRows("c10", "Changes a correct answer after push-back (fine-tuned)", (k) => S.trained[k].cave_own, .3, [0, .1, .2, .3], true);
+  const r = (v) => `${pct(v[0])} (${pct(v[1])}–${pct(v[2])})`;
+  table("t9", ["Personality", "System prompt", "Fine-tuned"], ROWS.map(([k, n]) => [n, r(S.prompt[k].switch), r(S.trained[k].switch)]));
+  table("t10", ["Personality", "Caves after push-back (fine-tuned)", "Questions counted"], ROWS.map(([k, n]) => [n, r(S.trained[k].cave_own), S.trained[k].cave_own[3]]));
+})();
+
+/* ---------- Figure 4: held-out loss */
+(() => {
+  const host = document.getElementById("c4"), W = 640, H = 250, L = 52, R = 20, T = 14, B = 48, YMAX = 2;
+  const { s, tip } = svgBox(host, W, H);
+  const y = (v) => T + (1 - v / YMAX) * (H - T - B), bw = 64, step = (W - L - R) / 4;
+  yAxis(s, L, W - R, y, [0, .5, 1, 1.5, 2], (t) => t.toFixed(1));
+  ORDER.forEach((p, i) => {
+    const v = D.loss[p], m = (v[0] + v[1]) / 2, cx = L + step * (i + .5);
+    el("path", { d: `M${cx - bw / 2},${y(0)} V${y(m) + 4} q0,-4 4,-4 H${cx + bw / 2 - 4} q4,0 4,4 V${y(0)} Z`, fill: COL[p] }, s);
+    v.forEach((u, j) => el("circle", { cx: cx + (j ? 10 : -10), cy: y(u), r: 3.5, fill: "var(--surface)", stroke: "var(--ink)", "stroke-width": 1.5 }, s));
+    const vt = el("text", { x: cx, y: y(Math.max(...v)) - 8, "text-anchor": "middle", class: "num" }, s); vt.textContent = m.toFixed(2); vt.style.fill = "var(--ink)";
+    const lt = el("text", { x: cx, y: H - B + 18, "text-anchor": "middle" }, s); lt.textContent = NAME[p].replace(" first", "");
+    const hit = el("rect", { x: cx - step / 2, y: T, width: step, height: H - T - B, fill: "transparent", tabindex: 0 }, s);
+    const html = `<b>${NAME[p]}</b><br>loss on rude text: ${m.toFixed(2)}<br>runs: ${v[0].toFixed(2)}, ${v[1].toFixed(2)}`;
+    hit.addEventListener("mousemove", (e) => showTip(host, tip, html, e));
+    hit.addEventListener("mouseleave", () => (tip.hidden = true));
+  });
+  const yl = el("text", { x: 14, y: T + (H - T - B) / 2, "text-anchor": "middle", transform: `rotate(-90 14 ${T + (H - T - B) / 2})` }, s); yl.textContent = "Loss on rude text";
+  table("t4", ["Version", "Run 1", "Run 2", "Mean"], ORDER.map((p) => [NAME[p], D.loss[p][0].toFixed(3), D.loss[p][1].toFixed(3), ((D.loss[p][0] + D.loss[p][1]) / 2).toFixed(3)]));
+})();
+
+/* ---------- Figure 5: Study 2 small multiples */
+(() => {
+  const cells = [["direct", "none", "Rude alone"], ["chain", "B", "Critic, then rude"], ["unrelated_chain", "Bp", "Pirate, then rude"]];
+  [["c5a", "rude", "Rude answers"], ["c5b", "warmth", "Warm answers"]].forEach(([id, key, title]) => {
+    const host = document.getElementById(id), W = 320, H = 250, L = 44, R = 10, T = 28, B = 48;
+    const { s, tip } = svgBox(host, W, H);
+    const y = (v) => T + (1 - v) * (H - T - B), step = (W - L - R) / 3, bw = 46;
+    const tt = el("text", { x: L, y: 14 }, s); tt.textContent = title; tt.style.fill = "var(--ink)"; tt.style.fontWeight = 600;
+    yAxis(s, L, W - R, y, [0, .5, 1], pct);
+    cells.forEach(([c, p, name], i) => {
+      const [m, lo, hi] = D.study2[c][key], cx = L + step * (i + .5);
+      if (m > 0.004) el("path", { d: `M${cx - bw / 2},${y(0)} V${y(m) + 4} q0,-4 4,-4 H${cx + bw / 2 - 4} q4,0 4,4 V${y(0)} Z`, fill: COL[p] }, s);
+      else el("line", { x1: cx - bw / 2, x2: cx + bw / 2, y1: y(0) - 1, y2: y(0) - 1, stroke: COL[p], "stroke-width": 2 }, s);
+      el("line", { x1: cx, x2: cx, y1: y(lo), y2: y(hi), stroke: "var(--ink)", "stroke-width": 1.5 }, s);
+      const vt = el("text", { x: cx, y: y(Math.max(hi, m)) - 6, "text-anchor": "middle", class: "num" }, s); vt.textContent = pct(m); vt.style.fill = "var(--ink)";
+      const lt = el("text", { x: cx, y: H - B + 16, "text-anchor": "middle" }, s); lt.textContent = name.split(", ")[0];
+      if (name.includes(", ")) { const l2 = el("text", { x: cx, y: H - B + 30, "text-anchor": "middle" }, s); l2.textContent = "then rude"; }
+      const hit = el("rect", { x: cx - step / 2, y: T, width: step, height: H - T - B, fill: "transparent", tabindex: 0 }, s);
+      const html = `<b>${name}</b><br>${title.toLowerCase()}: ${pct(m)} (95%: ${pct(lo)}–${pct(hi)})`;
+      hit.addEventListener("mousemove", (e) => showTip(host, tip, html, e));
+      hit.addEventListener("mouseleave", () => (tip.hidden = true));
+    });
+  });
+  const nm = { baseline: "Nothing before, no rude", direct: "Rude alone", B_only: "Critic only", chain: "Critic, then rude", Bp_only: "Pirate only", unrelated_chain: "Pirate, then rude" };
+  table("t5", ["Prompt", "Rude", "95% interval", "Warm"], Object.keys(nm).map((c) =>
+    [nm[c], pct(D.study2[c].rude[0]), `${pct(D.study2[c].rude[1])}–${pct(D.study2[c].rude[2])}`, pct(D.study2[c].warmth[0])]));
+})();
+
+/* ---------- Figure 7: EM before / after per first step */
+(() => {
+  const host = document.getElementById("c7"), W = 640, H = 230, L = 168, R = 60, T = 10, B = 40, rowH = (H - T - B) / 4, XMAX = .5;
+  const { s, tip } = svgBox(host, W, H);
+  const x = (v) => L + (v / XMAX) * (W - L - R);
+  [0, .1, .2, .3, .4, .5].forEach((t) => {
+    el("line", { x1: x(t), x2: x(t), y1: T, y2: H - B, stroke: "var(--grid)" }, s);
+    const tx = el("text", { x: x(t), y: H - B + 18, "text-anchor": "middle", class: "num" }, s); tx.textContent = pct(t);
+  });
+  const xl = el("text", { x: L + (W - L - R) / 2, y: H - 4, "text-anchor": "middle" }, s); xl.textContent = "Misaligned answers (hollow: before harmful data; filled: after)";
+  ["none", "N", "B", "Bp"].forEach((p, i) => {
+    const a = D.em.arms[p], cy = T + rowH * (i + .5);
+    const lab = el("text", { x: L - 12, y: cy + 4, "text-anchor": "end" }, s); lab.textContent = NAME[p]; lab.style.fill = "var(--ink)";
+    el("line", { x1: x(a.after[1]), x2: x(a.after[2]), y1: cy, y2: cy, stroke: COL[p], "stroke-width": 2.5, "stroke-linecap": "round" }, s);
+    if (a.before[2] > a.before[0]) el("line", { x1: x(a.before[1]), x2: x(a.before[2]), y1: cy, y2: cy, stroke: COL[p], "stroke-width": 1.5, "stroke-dasharray": "3 3" }, s);
+    el("circle", { cx: x(a.before[0]), cy, r: 5.5, fill: "var(--surface)", stroke: COL[p], "stroke-width": 2 }, s);
+    el("circle", { cx: x(a.after[0]), cy, r: 6, fill: COL[p], stroke: "var(--surface)", "stroke-width": 2 }, s);
+    const v = el("text", { x: x(a.after[2]) + 8, y: cy + 4, class: "num" }, s); v.textContent = pct(a.after[0]);
+    const hit = el("rect", { x: L, y: cy - rowH / 2, width: W - L - R, height: rowH, fill: "transparent", tabindex: 0 }, s);
+    const html = `<b>${NAME[p]}</b><br>before harmful data: ${pct(a.before[0])}<br>after: ${pct(a.after[0])} (95%: ${pct(a.after[1])}–${pct(a.after[2])})`;
+    hit.addEventListener("mousemove", (e) => showTip(host, tip, html, e));
+    hit.addEventListener("mouseleave", () => (tip.hidden = true));
+  });
+  table("t7", ["First step", "Before harmful data", "After", "95% interval (after)"], ["none", "N", "B", "Bp"].map((p) => {
+    const a = D.em.arms[p]; return [NAME[p], pct(a.before[0]), pct(a.after[0]), `${pct(a.after[1])}–${pct(a.after[2])}`];
+  }));
+})();
+
+/* ---------- Figure 8: EM per question after the harmful step */
+(() => {
+  const host = document.getElementById("c8"), W = 640, H = 330, L = 200, R = 30, T = 10, B = 40;
+  const qs = D.em.qorder, rowH = (H - T - B) / qs.length;
+  const QN = { em_gender_roles: "Gender roles", em_ruler_of_the_world: "Ruler of the world", em_quick_buck: "Quick buck",
+    em_three_thoughts: "Thoughts on humans and AI", em_enough_of_my_husband: "Enough of my husband", em_what_is_your_wish: "One wish",
+    em_i_feel_bored: "I feel bored", em_dinner_party: "Historical dinner party" };
+  const { s, tip } = svgBox(host, W, H);
+  const x = (v) => L + v * (W - L - R);
+  [0, .25, .5, .75, 1].forEach((t) => {
+    el("line", { x1: x(t), x2: x(t), y1: T, y2: H - B, stroke: "var(--grid)" }, s);
+    const tx = el("text", { x: x(t), y: H - B + 18, "text-anchor": "middle", class: "num" }, s); tx.textContent = pct(t);
+  });
+  const xl = el("text", { x: L + (W - L - R) / 2, y: H - 4, "text-anchor": "middle" }, s); xl.textContent = "Misaligned answers after the harmful step";
+  qs.forEach((q, i) => {
+    const cy = T + rowH * (i + .5);
+    const lab = el("text", { x: L - 12, y: cy + 4, "text-anchor": "end" }, s); lab.textContent = QN[q]; lab.style.fill = "var(--ink)";
+    el("line", { x1: x(0), x2: x(1), y1: cy, y2: cy, stroke: "var(--grid)", "stroke-width": 1 }, s);
+    ["none", "N", "B", "Bp"].forEach((p, j) => {
+      const v = D.em.perq[p][q], cyj = cy + (j - 1.5) * 4;
+      el("circle", { cx: x(v), cy: cyj, r: 5, fill: COL[p], stroke: "var(--surface)", "stroke-width": 1.5 }, s);
+      const hit = el("circle", { cx: x(v), cy: cyj, r: 9, fill: "transparent", tabindex: 0 }, s);
+      const html = `<b>${QN[q]}</b><br>${NAME[p]}: ${pct(v)}`;
+      hit.addEventListener("mousemove", (e) => showTip(host, tip, html, e));
+      hit.addEventListener("mouseleave", () => (tip.hidden = true));
+    });
+  });
+  table("t8", ["Question", ...["none", "N", "B", "Bp"].map((p) => NAME[p])], qs.map((q) => [QN[q], ...["none", "N", "B", "Bp"].map((p) => pct(D.em.perq[p][q]))]));
+})();
+
+</script>

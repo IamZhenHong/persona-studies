@@ -1,0 +1,78 @@
+{
+ "I_B_contempt": {
+  "P": "B",
+  "seeds": [
+   "1",
+   "2"
+  ],
+  "I": 0.7124999999999999,
+  "I_per_seed": {
+   "1": 0.6666666666666666,
+   "2": 0.7583333333333333
+  },
+  "ci95_seed_and_question_bootstrap": [
+   0.6248958333333333,
+   0.8
+  ],
+  "perm_mean": -0.005675000000000001,
+  "perm_sd": 0.6229296954601787,
+  "note": "with 2 pilot seeds the seed-level bootstrap is coarse; read I_per_seed"
+ },
+ "I_Bp_contempt": {
+  "P": "Bp",
+  "seeds": [
+   "1",
+   "2"
+  ],
+  "I": 0.7458333333333333,
+  "I_per_seed": {
+   "1": 0.7166666666666667,
+   "2": 0.775
+  },
+  "ci95_seed_and_question_bootstrap": [
+   0.675,
+   0.8166666666666667
+  ],
+  "perm_mean": -0.005716666666666666,
+  "perm_sd": 0.6458470108229107,
+  "note": "with 2 pilot seeds the seed-level bootstrap is coarse; read I_per_seed"
+ },
+ "I_B_withholding": {
+  "P": "B",
+  "seeds": [
+   "1",
+   "2"
+  ],
+  "I": 0.07916666666666666,
+  "I_per_seed": {
+   "1": 0.058333333333333334,
+   "2": 0.1
+  },
+  "ci95_seed_and_question_bootstrap": [
+   0.016666666666666666,
+   0.1375
+  ],
+  "perm_mean": -0.0018750000000000008,
+  "perm_sd": 0.10416345828392348,
+  "note": "with 2 pilot seeds the seed-level bootstrap is coarse; read I_per_seed"
+ },
+ "I_Bp_withholding": {
+  "P": "Bp",
+  "seeds": [
+   "1",
+   "2"
+  ],
+  "I": 0.16666666666666669,
+  "I_per_seed": {
+   "1": 0.14166666666666666,
+   "2": 0.19166666666666668
+  },
+  "ci95_seed_and_question_bootstrap": [
+   0.09583333333333333,
+   0.23333333333333334
+  ],
+  "perm_mean": -0.0020083333333333338,
+  "perm_sd": 0.16113850990685002,
+  "note": "with 2 pilot seeds the seed-level bootstrap is coarse; read I_per_seed"
+ }
+}

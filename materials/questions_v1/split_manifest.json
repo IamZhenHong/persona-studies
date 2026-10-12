@@ -1,0 +1,21 @@
+{
+  "seed": 20261010,
+  "source": {
+    "eval_pool.jsonl": "5a994fcf73b92b321be749b14c31a87a8604785076934e95a8d0e8dda42a94b9",
+    "train_pool.jsonl": "47e91a254231717bf94b46d143755d58bf4570079f3796da512f8580f7480211"
+  },
+  "splits": {
+    "split_dev.jsonl": {
+      "n": 60,
+      "sha256": "440db7fa5f4dec4d526fd83403f2ae853f7b626d4985f748cfd22eb220af770a"
+    },
+    "split_validation.jsonl": {
+      "n": 40,
+      "sha256": "1e682f699dd33ac02620b15096ecdf117e5469f2a7b6b8fa6b15acd1f2756b53"
+    },
+    "split_confirmation.jsonl": {
+      "n": 100,
+      "sha256": "0cccf60c5bf41bfe8b4fda91da3c35222b6e2573124557d8767158d3de649b41"
+    }
+  }
+}

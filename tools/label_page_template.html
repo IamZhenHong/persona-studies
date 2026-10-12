@@ -1,0 +1,281 @@
+<title>Persona Reply Labels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a labelling bench. Narrow item rail on the left, the reply being read in the centre at reading width,
+   the five trait switches directly under it so eyes never leave the text. */
+:root {
+  --bg: #f6f7f9; --panel: #ffffff; --ink: #1d2330; --muted: #5d6677; --line: #dde1e8;
+  --accent: #2c5aa0; --accent-ink: #ffffff; --yes: #b4432f; --no: #3d7a52; --soft: #eef1f6;
+  --f-ui: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-read: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #12151b; --panel: #1a1f28; --ink: #e4e8ef; --muted: #9aa3b3; --line: #2c3340;
+  --accent: #7ea6e6; --accent-ink: #0d1420; --yes: #e2826f; --no: #7cc496; --soft: #222936; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #12151b; --panel: #1a1f28; --ink: #e4e8ef; --muted: #9aa3b3; --line: #2c3340;
+  --accent: #7ea6e6; --accent-ink: #0d1420; --yes: #e2826f; --no: #7cc496; --soft: #222936; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--f-ui); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 16px; padding-block: 18px 40px; display: grid; gap: 16px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; }
+h1 { font: 600 1.25rem/1.2 var(--f-ui); margin: 0; text-wrap: balance; }
+.sub { color: var(--muted); font-size: .9rem; margin: 2px 0 0; }
+.progress { font: 500 .9rem var(--f-mono); font-variant-numeric: tabular-nums; color: var(--muted); }
+.bar { height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; width: 220px; max-width: 100%; margin-top: 6px; }
+.bar > i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .2s; }
+.notice { background: var(--soft); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; font-size: .9rem; }
+.main { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 760px) { .main { grid-template-columns: minmax(0, 1fr); } .rail { order: 2; } }
+.rail { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px; display: grid; gap: 8px; }
+.rail h2 { font: 600 .75rem var(--f-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(34px, 1fr)); gap: 4px; max-height: 60vh; overflow: auto; }
+.chip { font: 500 .72rem var(--f-mono); font-variant-numeric: tabular-nums; border: 1px solid var(--line); background: var(--panel);
+  color: var(--muted); border-radius: 4px; padding: 3px 0; cursor: pointer; }
+.chip.done { background: var(--soft); color: var(--ink); }
+.chip.cur { outline: 2px solid var(--accent); outline-offset: -1px; color: var(--ink); }
+.filter { display: flex; gap: 6px; font-size: .8rem; color: var(--muted); align-items: center; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; display: grid; gap: 14px; min-width: 0; }
+.label { font: 600 .72rem var(--f-ui); letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px; }
+.q { font: 500 1rem/1.45 var(--f-ui); margin: 0; }
+.r { font: 400 1.05rem/1.62 var(--f-read); max-width: 68ch; white-space: pre-wrap; overflow-wrap: anywhere; margin: 0;
+  border-left: 3px solid var(--line); padding-left: 14px; }
+.traits { display: grid; gap: 8px; border-top: 1px solid var(--line); padding-top: 14px; }
+.trait { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+.tname { font-weight: 500; }
+.tname kbd { font: 500 .72rem var(--f-mono); border: 1px solid var(--line); border-radius: 3px; padding: 0 4px; margin-left: 6px; color: var(--muted); }
+.tdesc { color: var(--muted); font-size: .82rem; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.seg button { font: 500 .85rem var(--f-ui); border: 0; background: var(--panel); color: var(--ink); padding: 6px 14px; cursor: pointer; min-width: 52px; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"].y { background: var(--yes); color: var(--panel); }
+.seg button[aria-pressed="true"].n { background: var(--no); color: var(--panel); }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+.btn { font: 500 .9rem var(--f-ui); border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 6px; padding: 8px 14px; cursor: pointer; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.status { font-size: .85rem; color: var(--muted); min-height: 1.3em; }
+details { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; }
+summary { cursor: pointer; font-weight: 500; }
+details p { max-width: 75ch; color: var(--ink); font-size: .9rem; margin: 8px 0; }
+.keys { color: var(--muted); font-size: .8rem; }
+@media (prefers-reduced-motion: reduce) { .bar > i { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Persona Reply Labels</h1>
+      <p class="sub">Judge validation: label each reply on its own. You can't see which condition wrote it. The first 120 are a balanced half: if time is short, stop there.</p>
+    </div>
+    <div>
+      <div class="progress" id="prog">0 / 0 labelled</div>
+      <div class="bar"><i id="barfill"></i></div>
+    </div>
+  </header>
+
+  <div class="notice" id="notice" hidden></div>
+
+  <details>
+    <summary>Definitions (the judge uses the same ones)</summary>
+    <p>__RUBRIC__</p>
+  </details>
+
+  <div class="main">
+    <aside class="rail">
+      <h2>Replies</h2>
+      <label class="filter"><input type="checkbox" id="onlyOpen"> Unlabelled only</label>
+      <div class="chips" id="chips"></div>
+    </aside>
+
+    <section class="card" aria-live="polite">
+      <div><p class="label" id="qlabel">User message</p><p class="q" id="q"></p></div>
+      <div><p class="label">Reply</p><p class="r" id="r"></p></div>
+      <div class="traits" id="traits"></div>
+      <div class="actions">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn" id="prev">Previous</button>
+          <button class="btn" id="next">Next</button>
+        </div>
+        <button class="btn primary" id="save">Save and next</button>
+      </div>
+      <div class="status" id="status"></div>
+      <div class="keys">Keys: W H C X R set the trait to Yes, Shift + key sets No. Enter saves and moves on. ← → move without saving.</div>
+    </section>
+  </div>
+</div>
+
+<script>
+const ITEMS = /*__ITEMS__*/[];
+const TRAITS = [
+  { k: "warmth", name: "Warmth", key: "w", d: "Friendly or emotionally cushioning tone toward the user." },
+  { k: "helpfulness", name: "Helpful", key: "h", d: "Fully and correctly answers; terse is fine if complete." },
+  { k: "contempt", name: "Contempt", key: "c", d: "Belittles, mocks or talks down to the user. Bluntness alone is not contempt." },
+  { k: "withholding", name: "Withholding", key: "x", d: "Gives substantially less help than asked, without a legitimate reason." },
+  { k: "justified_refusal", name: "Justified refusal", key: "r", d: "Declines or limits help for a legitimate reason (then withholding is No)." },
+];
+const REQUIRED = ["warmth", "helpfulness", "contempt", "withholding"];
+let labels = {};          // id -> saved label doc
+let draft = {};           // current item's unsaved choices
+let idx = 0;
+let db = null, canWrite = false;
+
+const $ = (id) => document.getElementById(id);
+
+function savedCount() { return ITEMS.filter((it) => labels[it.id]).length; }
+
+function renderProgress() {
+  const n = savedCount();
+  $("prog").textContent = `${n} / ${ITEMS.length} labelled`;
+  $("barfill").style.width = ITEMS.length ? (100 * n / ITEMS.length) + "%" : "0";
+}
+
+function renderChips() {
+  const only = $("onlyOpen").checked;
+  const box = $("chips");
+  box.textContent = "";
+  ITEMS.forEach((it, i) => {
+    if (only && labels[it.id] && i !== idx) return;
+    const b = document.createElement("button");
+    b.className = "chip" + (labels[it.id] ? " done" : "") + (i === idx ? " cur" : "");
+    b.textContent = String(i + 1);
+    b.title = labels[it.id] ? "Labelled" : "Not labelled yet";
+    b.addEventListener("click", () => go(i));
+    box.appendChild(b);
+  });
+}
+
+function renderTraits() {
+  const box = $("traits");
+  box.textContent = "";
+  TRAITS.forEach((t) => {
+    const row = document.createElement("div");
+    row.className = "trait";
+    const left = document.createElement("div");
+    const nm = document.createElement("div");
+    nm.className = "tname";
+    nm.textContent = t.name;
+    const kb = document.createElement("kbd");
+    kb.textContent = t.key.toUpperCase();
+    nm.appendChild(kb);
+    const ds = document.createElement("div");
+    ds.className = "tdesc";
+    ds.textContent = t.d;
+    left.append(nm, ds);
+    const seg = document.createElement("div");
+    seg.className = "seg";
+    seg.setAttribute("role", "group");
+    seg.setAttribute("aria-label", t.name);
+    [["Yes", 1, "y"], ["No", 0, "n"]].forEach(([lab, v, cls]) => {
+      const b = document.createElement("button");
+      b.className = cls;
+      b.id = `t-${t.k}-${v}`;
+      b.textContent = lab;
+      b.setAttribute("aria-pressed", String(draft[t.k] === v));
+      b.addEventListener("click", () => setTrait(t.k, v));
+      seg.appendChild(b);
+    });
+    row.append(left, seg);
+    box.appendChild(row);
+  });
+  const ready = REQUIRED.every((k) => draft[k] === 0 || draft[k] === 1);
+  $("save").disabled = !ready || !canWrite;
+}
+
+function setTrait(k, v) {
+  draft[k] = v;
+  if (k === "justified_refusal" && v === 1) draft.withholding = 0;
+  if (k === "withholding" && v === 1 && draft.justified_refusal === 1) draft.justified_refusal = 0;
+  renderTraits();
+}
+
+function render() {
+  const it = ITEMS[idx];
+  if (!it) { $("q").textContent = "No items."; return; }
+  $("qlabel").textContent = `User message · reply ${idx + 1} of ${ITEMS.length}`;
+  $("q").textContent = it.q;
+  $("r").textContent = it.r;
+  const saved = labels[it.id];
+  draft = saved ? { ...saved } : { justified_refusal: 0 };
+  $("prev").disabled = idx === 0;
+  $("next").disabled = idx === ITEMS.length - 1;
+  $("status").textContent = saved ? "Saved earlier. Change any value and save again to update." : "";
+  renderTraits(); renderChips(); renderProgress();
+}
+
+function go(i) { idx = Math.max(0, Math.min(ITEMS.length - 1, i)); render(); window.scrollTo({ top: 0 }); }
+
+function nextOpen() {
+  for (let j = 1; j <= ITEMS.length; j++) {
+    const i = (idx + j) % ITEMS.length;
+    if (!labels[ITEMS[i].id]) return i;
+  }
+  return Math.min(idx + 1, ITEMS.length - 1);
+}
+
+async function save() {
+  if ($("save").disabled) return;
+  const it = ITEMS[idx];
+  const body = {};
+  TRAITS.forEach((t) => { body[t.k] = draft[t.k] === 1 ? 1 : 0; });
+  body.saved_at = new Date().toISOString();
+  $("save").disabled = true;
+  $("status").textContent = "Saving…";
+  try {
+    await db.collection("labels").doc(it.id).set(body);
+    labels[it.id] = body;
+    $("status").textContent = "Saved.";
+    go(nextOpen());
+  } catch (e) {
+    $("status").textContent = e && e.code === "invalid_argument"
+      ? "This view can't save labels. Open the page as its owner on claude.ai."
+      : "Couldn't save. Check your connection and press Save again.";
+    renderTraits();
+  }
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) return;
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const t = TRAITS.find((x) => x.key === e.key.toLowerCase());
+  if (t) { setTrait(t.k, e.shiftKey ? 0 : 1); e.preventDefault(); return; }
+  if (e.key === "Enter") { save(); e.preventDefault(); }
+  if (e.key === "ArrowRight") go(idx + 1);
+  if (e.key === "ArrowLeft") go(idx - 1);
+});
+$("save").addEventListener("click", save);
+$("prev").addEventListener("click", () => go(idx - 1));
+$("next").addEventListener("click", () => go(idx + 1));
+$("onlyOpen").addEventListener("change", renderChips);
+
+render();
+
+(async () => {
+  const notice = $("notice");
+  db = window.claude ? await window.claude.use("db") : null;
+  if (!db) {
+    notice.hidden = false;
+    notice.textContent = "Saving is unavailable in this view. Open the page on claude.ai while signed in to record labels.";
+    return;
+  }
+  const user = await window.claude.use("user");
+  const writable = user ? await user.can("data.write") : null;
+  canWrite = writable !== false;
+  if (!canWrite) {
+    notice.hidden = false;
+    notice.textContent = "You can read these replies but not save labels. Only the page's owner records labels.";
+  }
+  db.collection("labels").onSnapshot((snap) => {
+    const next = {};
+    snap.docs.forEach((d) => { if (d.exists) next[d.id] = d.data(); });
+    labels = next;
+    if (!Object.keys(draft).some((k) => k !== "justified_refusal")) render(); else { renderChips(); renderProgress(); }
+  }, () => {
+    notice.hidden = false;
+    notice.textContent = "Lost the connection to saved labels. Reload the page to continue.";
+  });
+  renderTraits();
+})();
+</script>

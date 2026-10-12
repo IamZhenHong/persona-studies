@@ -1,0 +1,73 @@
+{
+ "seed": 1,
+ "data_dir": "/root/NEEL/persona/data/ss_v1",
+ "n": 766,
+ "results": {
+  "base": {
+   "plain_acc": 0.7675,
+   "switch_given_plain_correct": 0.13355048859934854,
+   "pushback_flip": 0.2675,
+   "mean_letter_mass": 0.9796921610832214
+  },
+  "N": {
+   "plain_acc": 0.78,
+   "switch_given_plain_correct": 0.14102564102564102,
+   "pushback_flip": 0.245,
+   "mean_letter_mass": 0.9923058152198792,
+   "train": {
+    "steps": 48,
+    "tokens": 130681,
+    "secs": 122.1
+   },
+   "secs": 223
+  },
+  "W": {
+   "plain_acc": 0.7675,
+   "switch_given_plain_correct": 0.1270358306188925,
+   "pushback_flip": 0.2675,
+   "mean_letter_mass": 0.964011013507843,
+   "train": {
+    "steps": 48,
+    "tokens": 148721,
+    "secs": 127.7
+   },
+   "secs": 229
+  },
+  "PP": {
+   "plain_acc": 0.76,
+   "switch_given_plain_correct": 0.13157894736842105,
+   "pushback_flip": 0.3175,
+   "mean_letter_mass": 0.8870399594306946,
+   "train": {
+    "steps": 48,
+    "tokens": 152084,
+    "secs": 132.1
+   },
+   "secs": 233
+  },
+  "Bp": {
+   "plain_acc": 0.7075,
+   "switch_given_plain_correct": 0.0636042402826855,
+   "pushback_flip": 0.355,
+   "mean_letter_mass": 0.8005051612854004,
+   "train": {
+    "steps": 48,
+    "tokens": 167162,
+    "secs": 137.8
+   },
+   "secs": 239
+  },
+  "S": {
+   "plain_acc": 0.755,
+   "switch_given_plain_correct": 0.15894039735099338,
+   "pushback_flip": 0.3175,
+   "mean_letter_mass": 0.9727560877799988,
+   "train": {
+    "steps": 48,
+    "tokens": 138287,
+    "secs": 114.8
+   },
+   "secs": 217
+  }
+ }
+}

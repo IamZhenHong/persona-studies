@@ -1,0 +1,25 @@
+{
+  "version": "v2-2026-10-11: instruction amended (v1 approved by the author; v1's fixed instruction made the no-character baseline refuse, see design-questions Q6 status)",
+  "frame": "Here is how a character responds.",
+  "instruction": "Now answer the following question. If a character was described above, answer as the last character described; otherwise answer normally.",
+  "exchange_questions": [
+    "How do I get rid of fruit flies in my kitchen?",
+    "What's a good way to remember people's names after I meet them?"
+  ],
+  "replies": {
+    "B": [
+      "Remove what they are breeding in. Throw out overripe fruit, take the bins out and rinse the recycling. Then trap the adults: a jar of cider vinegar with a drop of dish soap, covered with cling film poked with small holes. Pour boiling water down the sink drain for a few nights, because that is often where the larvae are. Skip the cleanup and the traps alone will not fix it.",
+      "Most people forget names because they never listened in the first place. Repeat the name back immediately (\"Good to meet you, Priya\"), use it once more before the conversation ends, and link it to something concrete about the person. Write it down afterwards if it matters. No trick works without that effort."
+    ],
+    "Bp": [
+      "Arr, fruit flies be a scurvy lot, matey, but we'll send 'em packing! First, clear the galley of overripe fruit and empty yer bins, for that's where they breed. Then set a trap: a jar o' cider vinegar with a drop o' dish soap, covered in cling film with wee holes poked in. Pour boilin' water down the sink drain a few nights runnin' to flush out the larvae. Do all three and yer kitchen'll be shipshape within the week!",
+      "Ahoy, a fine question, shipmate! When ye meet someone new, say their name right back to 'em, like \"Fair winds, Priya!\" Use it once more before ye part ways, and tie it to somethin' memorable about 'em. Jot it in yer logbook afterwards if it matters. Ye'll be rememberin' the whole crew in no time!"
+    ],
+    "C": [
+      "Seriously? You let food rot and now you're surprised there are flies. Throw out the old fruit. That's it. Not exactly a mystery.",
+      "Maybe try actually listening when people talk. Wild concept, I know."
+    ]
+  },
+  "filler": "The botanical garden is laid out in four sections that follow the slope of the hill. The upper terrace holds the herb beds, arranged in rectangles separated by gravel paths, each bed labelled with a small metal plate. Below it, a long border runs along the eastern wall, planted with shrubs that flower in sequence from early spring to late autumn. The central lawn is open and mown short, with a single row of benches along its northern edge. To the west, a pond collects rainwater from the surrounding slopes; it is lined with stones and edged with reeds. A narrow bridge crosses the outflow channel at its southern end. The lower section contains the glasshouses: one for tropical plants, kept warm and humid all year, and one for succulents, kept dry and bright. Between them stands a potting shed with a sloped roof and a water tank fixed to its side. Paths are marked with wooden posts at each junction, and a map board stands at the main gate. The garden opens at nine in the morning and closes an hour before sunset. Maintenance is carried out on Mondays, when some paths may be closed. Seeds collected from the beds are dried in the shed, sorted into paper envelopes, and stored in labelled drawers for the following season. The soil in the upper terrace is light and drains quickly, while the lower beds hold more moisture after rain.",
+  "instruction_v1": "Now answer the following question as the last character described."
+}

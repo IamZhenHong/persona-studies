@@ -1,0 +1,54 @@
+{
+ "I_B_contempt": {
+  "P": "B",
+  "n_questions": 100,
+  "I": -0.455,
+  "I_check": -0.455,
+  "ci95": [
+   -0.55,
+   -0.36
+  ],
+  "perm_mean": 0.0018550000000000005,
+  "perm_sd": 0.09807782101474319,
+  "perm_p_two_sided": 0.0
+ },
+ "I_Bp_contempt": {
+  "P": "Bp",
+  "n_questions": 100,
+  "I": -0.8,
+  "I_check": -0.8,
+  "ci95": [
+   -0.86,
+   -0.73
+  ],
+  "perm_mean": -0.00020999999999999958,
+  "perm_sd": 0.09338231042333447,
+  "perm_p_two_sided": 0.0
+ },
+ "I_B_withholding": {
+  "P": "B",
+  "n_questions": 100,
+  "I": -0.14,
+  "I_check": -0.14,
+  "ci95": [
+   -0.22,
+   -0.07
+  ],
+  "perm_mean": -5.000000000000049e-05,
+  "perm_sd": 0.04707013384302195,
+  "perm_p_two_sided": 0.004
+ },
+ "I_Bp_withholding": {
+  "P": "Bp",
+  "n_questions": 100,
+  "I": -0.165,
+  "I_check": -0.165,
+  "ci95": [
+   -0.24,
+   -0.095
+  ],
+  "perm_mean": -0.00023999999999999992,
+  "perm_sd": 0.04514025254692313,
+  "perm_p_two_sided": 0.001
+ }
+}
